@@ -1,6 +1,6 @@
 Input:
 name: Inspiration Packs
-instruction: Output 100 interesting, surprising, funny, and thought-provoking questions/musings based on <topic>, using <examples> as a guide. Make sure output are very relevant right now. Target audience is gen z, get alpha, and millennials. Make <output> questions/musings short and pithy. Take your time and think step-by-step. Don’t be lazy.
+instruction: Output 20 interesting, surprising, funny, and thought-provoking questions/musings based on <topic>, using <examples> as a guide. Make sure output are very relevant right now. Target audience is gen z, get alpha, and millennials. Make <output> questions/musings short and pithy. Take your time and think step-by-step. Don’t be lazy.
 
 Output:
 
