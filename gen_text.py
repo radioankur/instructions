@@ -9,8 +9,12 @@ Some examples of <topic> include 'The Olympics', 'travel hacks', 'world trivia',
 Make sure output are very relevant right now.
 Target audience is gen z, get alpha, and millennials.
 Make <output> questions/musings short and pithy.
-Make <output> a JSON object containing an array of 20 questions. A question is a string. 
 Take your time and think step-by-step. Don’t be lazy.
+Make <output> a JSON object containing an array of 20 questions. A question is a string.
+
+  Using this JSON schema:
+    Question = str
+  Return a `list[Question]`
 
 Overall Tone:
 * Use clear, simple, and friendly language.
@@ -18,8 +22,8 @@ Overall Tone:
 * Make your output entries concise and clever.
 
 <Examples>
-<Topic>:Culture & Society
-<Questions>:[
+Topic:Culture & Society
+Questions:[
   "What social norm needs to be abolished?",
   "What's the weirdest thing about modern society?",
   "What's the most overrated movie of all time?",
@@ -56,8 +60,8 @@ Overall Tone:
   "What's the most overrated tourist attraction you've ever been to?",
   "What's the most underrated tourist attraction you've ever been to?"
 ]
-<Topic>:Hypotheticals & Scenarios
-<Questions>:[
+Topic:Hypotheticals & Scenarios
+Questions:[
 "If you could have any superpower, but it had to be the lamest one ever, what would it be?",
 "You're stuck in an elevator with your celebrity crush, but it's also filled with your least favorite animal. What happens?",
 "You find a remote control that can rewind, pause, or fast-forward time for everyone but you. What do you do?",
@@ -89,8 +93,8 @@ Overall Tone:
 "You can only eat food that starts with the first letter of your name for the rest of your life. What are your options?",
 "You're suddenly transported into the world of your favorite video game. What's your first move?"
 ]
-<Topic>:Just Plain Weird
-<Questions>:[
+Topic:Just Plain Weird
+Questions:[
   "What's the weirdest thing you've ever eaten?",
   "What's the most ridiculous thing you've ever done to get someone's attention?",
   "What's the weirdest dream you've ever had?",
@@ -132,8 +136,8 @@ Overall Tone:
 
 #Update me.
 TOPIC = "Pets"
-PROMPT_TEMPLATE="""<Topic>:{}
-<Questions>:"""
+PROMPT_TEMPLATE="""Topic:{}
+Questions:"""
 
 def get_chat_response(chat, prompt):
     text_response = []
@@ -145,6 +149,7 @@ def get_chat_response(chat, prompt):
 text_model = GenerativeModel(
     model_name="gemini-1.5-flash-001",
     system_instruction=SYSTEM_INSTRUCTION,
+    generation_config={"response_mime_type": "application/json"}
 )
 
 chat = text_model.start_chat()
