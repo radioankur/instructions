@@ -13,13 +13,14 @@ PROMPT = "A cute dog"
 
 images = imagen_model.generate_images(
     prompt=PROMPT,
-    number_of_images=1,
+    number_of_images=6,
     aspect_ratio="9:16",
     safety_filter_level="block_some",
     person_generation="allow_adult",
 )
 
-tmp = tempfile.NamedTemporaryFile(dir='/tmp')
-images[0].save(location=tmp.name, include_generation_parameters=False)
-img = Image.open(tmp.name)
-img.show() 
+for image in images:
+    tmp = tempfile.NamedTemporaryFile(dir='/tmp')
+    image.save(location=tmp.name, include_generation_parameters=False)
+    img = Image.open(tmp.name)
+    img.show()
