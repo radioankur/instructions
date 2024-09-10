@@ -8,7 +8,7 @@ SYSTEM_INSTRUCTION = """Output 20 interesting, surprising, funny, and thought-pr
 Some examples of <topic> include 'The Olympics', 'travel hacks', 'world trivia', but it could be anything.
 Make sure output are very relevant right now.
 Target audience is gen z, get alpha, and millennials.
-Make <output> questions/musings short and pithy.
+Make <output> questions/musings 8 words or fewer.
 Take your time and think step-by-step. Don’t be lazy.
 Make <output> a JSON object containing an array of 20 questions. A question is a string.
 
