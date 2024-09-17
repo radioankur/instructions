@@ -1,6 +1,10 @@
 import vertexai
+import tempfile
+import json
 
 from vertexai.generative_models import GenerativeModel, ChatSession, GenerationConfig
+from vertexai.preview.vision_models import ImageGenerationModel
+from PIL import Image
 
 vertexai.init(project="stations-243022", location="us-central1")
 
@@ -56,4 +60,21 @@ text_model = GenerativeModel(
 chat = text_model.start_chat()
 prompt = PROMPT_TEMPLATE.format(QUESTION)
 text = get_chat_response(chat, prompt)
+print("PROMPTS:")
 print(text)
+
+imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-fast-generate-001")
+
+image_prompts = json.loads(text)
+for prompt in image_prompts:
+    images = imagen_model.generate_images(
+        prompt=prompt,
+        number_of_images=1,
+        aspect_ratio="3:4",
+        safety_filter_level="block_some",
+        person_generation="allow_adult",
+    )
+    tmp = tempfile.NamedTemporaryFile(dir='/tmp')
+    images[0].save(location=tmp.name, include_generation_parameters=False)
+    img = Image.open(tmp.name)
+    img.show()
