@@ -1,10 +1,11 @@
 import vertexai
+import json
 
-from vertexai.generative_models import GenerativeModel, ChatSession
+from vertexai.generative_models import GenerativeModel, ChatSession, GenerationConfig
 
 vertexai.init(project="stations-243022", location="us-central1")
 
-SYSTEM_INSTRUCTION = """Output 20 interesting, surprising, funny, and thought-provoking questions based on TOPIC, using <Examples> as a guide.
+SYSTEM_INSTRUCTION = """Output 20 interesting, surprising, funny, and thought-provoking questions based on TOPIC and/or EXISTING_QUESTIONS, using <Examples> as a guide.
 Make sure output questions very relevant right now.
 Target audience is gen z, get alpha, and millennials.
 Make sure that each output question contains 8 words or fewer.
@@ -122,10 +123,37 @@ Questions:[
 </Examples>
 """
 
-#Update me.
-TOPIC = "Pets"
-PROMPT_TEMPLATE="""Topic:{}
+PROMPT_TEMPLATE_WITH_TOPIC="""Topic:{}
 Questions:"""
+PROMPT_TEMPLATE_WITH_TOPIC_AND_QUESTIONS="""Topic:{}
+Existing Questions:{}
+Questions:"""
+PROMPT_TEMPLATE_WITH_QUESTIONS="""Existing Questions:{}
+Questions:"""
+
+RESPONSE_SCHEMA = {
+    "type": "array",
+    "items": {
+        "type": "string",
+    },
+}
+
+#Update me.
+TOPIC = "Travel"
+EXISTING_QUESTIONS = [
+    "Hostel or Hotel?",
+    "Beach or mountains?",
+]
+
+prompt = ""
+if TOPIC and EXISTING_QUESTIONS:
+    prompt = PROMPT_TEMPLATE_WITH_TOPIC_AND_QUESTIONS.format(TOPIC, json.dumps(EXISTING_QUESTIONS))
+elif TOPIC:
+    prompt = PROMPT_TEMPLATE_WITH_TOPIC.format(TOPIC)
+elif EXISTING_QUESTIONS:
+    prompt = PROMPT_TEMPLATE_WITH_QUESTIONS.format(json.dumps(EXISTING_QUESTIONS))
+else:
+    prompt = "Questions:"
 
 def get_chat_response(chat, prompt):
     text_response = []
@@ -137,10 +165,11 @@ def get_chat_response(chat, prompt):
 text_model = GenerativeModel(
     model_name="gemini-1.5-flash-001",
     system_instruction=SYSTEM_INSTRUCTION,
-    generation_config={"response_mime_type": "application/json"}
+    generation_config=GenerationConfig(
+        response_mime_type="application/json", response_schema=RESPONSE_SCHEMA
+    )
 )
 
 chat = text_model.start_chat()
-prompt = PROMPT_TEMPLATE.format(TOPIC)
 text = get_chat_response(chat, prompt)
 print(text)
