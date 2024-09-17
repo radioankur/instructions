@@ -17,14 +17,14 @@ vertexai.init(project="stations-243022", location="us-central1")
 imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-fast-generate-001")
 
 # Update me.
-STYLE = Style.CINEMATIC
+STYLE = Style.PIXEL_ART
 PROMPT = "A cute dog"
 PROMPT_TEMPLATE_WITH_STYLE = "{}; style: {}"
 
 images = imagen_model.generate_images(
     prompt=PROMPT_TEMPLATE_WITH_STYLE.format(PROMPT, STYLE.value) if STYLE else PROMPT,
-    number_of_images=6,
-    aspect_ratio="9:16",
+    number_of_images=4,
+    aspect_ratio="3:4",
     safety_filter_level="block_some",
     person_generation="allow_adult",
 )

@@ -45,6 +45,6 @@ text_model = GenerativeModel(
 )
 
 chat = text_model.start_chat()
-prompt = PROMPT_TEMPLATE.format(TOPIC)
+prompt = PROMPT_TEMPLATE.format(QUESTION)
 text = get_chat_response(chat, prompt)
 print(text)
