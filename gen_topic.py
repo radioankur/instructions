@@ -1,7 +1,8 @@
 import vertexai
 import json
+import typing_extensions as typing
 
-from vertexai.generative_models import GenerativeModel, ChatSession
+from vertexai.generative_models import GenerativeModel, ChatSession, GenerationConfig
 
 vertexai.init(project="stations-243022", location="us-central1")
 
@@ -35,6 +36,13 @@ Topics:[
 </Examples>
 """
 
+RESPONSE_SCHEMA = {
+    "type": "array",
+    "items": {
+        "type": "string",
+    },
+}
+
 #Update me.
 QUESTIONS = [
     "What's the most populate pet in the world?",
@@ -53,7 +61,9 @@ def get_chat_response(chat, prompt):
 text_model = GenerativeModel(
     model_name="gemini-1.5-flash-001",
     system_instruction=SYSTEM_INSTRUCTION,
-    generation_config={"response_mime_type": "application/json"}
+    generation_config=GenerationConfig(
+        response_mime_type="application/json", response_schema=RESPONSE_SCHEMA
+    )
 )
 
 chat = text_model.start_chat()
