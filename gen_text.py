@@ -34,16 +34,16 @@ FORMAT types:[
     "Is the Earth flat? (True/False)",
     "Which of these is a primary color?", 
 
-3. This or that?: Generate phrases that present two options for the player to choose between, like:
+3. This or that?: Generate phrases that present two options about TOPIC for the player to choose between, like:
     "Coffee or tea?",
     "Beach vacation or mountain getaway?",
     
-4. Recommendations: Generate phrases that suggest something to the player (e.g., a book, movie, activity), like:
+4. Recommendations: Generate phrases that suggest something to the player about TOPIC (e.g., a book, movie, activity), like:
   "Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.", 
   "Watch the movie 'Spirited Away' by Studio Ghibli.", 
   "Go for a hike in a nearby park.", 
 
-5. Opinion: Generate phrases that ask for the player's opinion on a topic, like:
+5. Opinion: Generate phrases that ask for the player's opinion about TOPIC, like:
   "What is your favorite season and why?",
   "Do you believe in aliens?",
   "What social norm needs to be abolished?",
@@ -143,7 +143,7 @@ FORMAT types:[
   "Most ridiculous thing you've ever done to try and impress a crush?",
   "Weirdest question you've ever been asked?"
 
-7. Challenge: Generate phrases that prompt the player to react in a certain way (e.g., with an emotion, action, or sound), like:
+7. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
     "Make a surprised face!",
     "Imitate the sound of a cat.",
     "Do 10 push-ups!",
