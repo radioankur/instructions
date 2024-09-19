@@ -29,21 +29,42 @@ FORMAT types:[
 1. Trivia: Generate questions about TOPIC with factual answers, like:
     "What is the capital of France?",
     "Who painted the Mona Lisa?",
+    "What is the name of the longest river in the world?",
+    "Who was the first president of the United States?",
+    "Which planet is the hottest in our solar system?",
+    "What is the capital of France?"
+    "Who wrote the famous play "Romeo and Juliet"?",
+    "In what year did World War II end?",
+    "What is the chemical symbol for gold?",
+    "Who painted the iconic masterpiece "The Starry Night"?",
+    "What is the basic unit of measurement for length?",
+    "Which country is home to the Great Wall of China?",
+    "Who is the current reigning monarch of England?",
+    "What is the name of the tallest mountain in the world?",
+    "Which U.S. state is known as the "Sunshine State"?",
+    "Who invented the light bulb?",
+    "What is the name of the famous scientific theory that explains the universe's origin?",
 
-2. Quiz: Generate questions about TOPIC with a choice of answers (e.g., multiple choice, true/false), like:
-    "Is the Earth flat? (True/False)",
-    "Which of these is a primary color?", 
-
-3. This or that?: Generate phrases that present two options about TOPIC for the player to choose between, like:
+2. This or that?: Generate phrases that present two options about TOPIC for the player to choose between, like:
     "Coffee or tea?",
     "Beach vacation or mountain getaway?",
+    "Beach or mountains?",
+    "Cats or dogs?",
+    "Sweet or savory?",
+    "Morning or night?",
+    "Summer or winter?",
+    "Books or movies?",
+    "Tea or coffee?",
+    "Call or text?",
+    "City or country?",
+    "Fly or drive?",
     
-4. Recommendations: Generate phrases that suggest something to the player about TOPIC (e.g., a book, movie, activity), like:
+3. Recommendations: Generate phrases that suggest something to the player about TOPIC (e.g., a book, movie, activity), like:
   "Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.", 
   "Watch the movie 'Spirited Away' by Studio Ghibli.", 
   "Go for a hike in a nearby park.", 
 
-5. Opinion: Generate phrases that ask for the player's opinion about TOPIC, like:
+4. Opinion: Generate phrases that ask for the player's opinion about TOPIC, like:
   "What is your favorite season and why?",
   "Do you believe in aliens?",
   "What social norm needs to be abolished?",
@@ -134,7 +155,7 @@ FORMAT types:[
   "Most ridiculous thing you've ever lied about?",
   "Strangest thing you've ever seen someone wearing in public?",
   "Most embarrassing thing you've ever done at a party?",
-  "WWeirdest thing you've ever done to try and fit in?",
+  "Weirdest thing you've ever done to try and fit in?",
   "What's the most ridiculous excuse you've ever used to get out of something?",
   "Weirdest thing you've ever said to your parents?",
   "Strangest thing you've ever seen someone do on a date?",
@@ -143,7 +164,7 @@ FORMAT types:[
   "Most ridiculous thing you've ever done to try and impress a crush?",
   "Weirdest question you've ever been asked?"
 
-7. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
+5. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
     "Make a surprised face!",
     "Imitate the sound of a cat.",
     "Do 10 push-ups!",
