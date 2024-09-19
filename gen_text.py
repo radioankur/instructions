@@ -5,7 +5,7 @@ from vertexai.generative_models import GenerativeModel, ChatSession, GenerationC
 
 vertexai.init(project="stations-243022", location="us-central1")
 
-SYSTEM_INSTRUCTION = """You are a helpful and creative AI assistant. Output 20 interesting, surprising, funny, and thought-provoking phrases based on FORMAT, TOPIC and/or EXISTING_QUESTIONS, using <Examples> as a guide.
+SYSTEM_INSTRUCTION = """You are a helpful and creative AI assistant. Output 20 interesting and funny phrases based on FORMAT, TOPIC and/or EXISTING_QUESTIONS, using <Examples> as a guide.
 Understand the FORMAT and TOPIC before you output. 
 If no FORMAT is clear, then output phrases from each FORMAT type. 
 Make sure output questions very relevant right now.
