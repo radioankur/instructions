@@ -24,11 +24,26 @@ Overall Tone:
 * Make sure output questions are concise and clever.
 
 
-FORMAT 
+FORMAT types:[
 
+1. Trivia: Generate questions about TOPIC with factual answers, like:
+    1. "What is the capital of France?"
+    2. "Who painted the Mona Lisa?"
 
-<Examples>
-Questions:[
+2. Quiz: Generate questions about TOPIC with a choice of answers (e.g., multiple choice, true/false), like:
+    1. "Is the Earth flat? (True/False)"
+    2. "Which of these is a primary color: red, green, or purple?"
+
+3. This or that?: Generate phrases that present two options for the player to choose between, like:
+    1. "Coffee or tea?"
+    2. "Beach vacation or mountain getaway?"
+4. Recommendations: Generate phrases that suggest something to the player (e.g., a book, movie, activity), like:
+  "Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.", 
+  "Watch the movie 'Spirited Away' by Studio Ghibli.", 
+  "Go for a hike in a nearby park.", 
+5. Opinion: Generate phrases that ask for the player's opinion on a topic, like:
+  "What is your favorite season and why?",
+  "Do you believe in aliens?",
   "What social norm needs to be abolished?",
   "The weirdest thing about modern society?",
   "The most overrated movie of all time?",
@@ -127,6 +142,17 @@ Questions:[
   "Weirdest question you've ever been asked?"
 ]
 </Examples>
+6. Event Coverage: Generate phrases related to reporting on an event (real or fictional), like:
+    1. "The crowd cheers as the winning goal is scored!"
+    2. "Breaking news: a mysterious object has been spotted in the sky."
+7. Reaction: Generate phrases that prompt the player to react in a certain way (e.g., with an emotion, action, or sound), like:
+    1. "Make a surprised face!"
+    2. "Imitate the sound of a cat."
+8. Challenge: Generate phrases that dare or challenge the player to do something, like:
+    1. "Do 10 push-ups!"
+    2. "Tell a joke that will make everyone laugh."
+    ]
+    
 """
 
 PROMPT_TEMPLATE_WITH_TOPIC="""Topic:{}
