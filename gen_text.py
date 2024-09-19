@@ -5,7 +5,9 @@ from vertexai.generative_models import GenerativeModel, ChatSession, GenerationC
 
 vertexai.init(project="stations-243022", location="us-central1")
 
-SYSTEM_INSTRUCTION = """Output 20 interesting, surprising, funny, and thought-provoking questions based on TOPIC and/or EXISTING_QUESTIONS, using <Examples> as a guide.
+SYSTEM_INSTRUCTION = """You are a helpful and creative AI assistant. Output 20 interesting, surprising, funny, and thought-provoking phrases based on FORMAT, TOPIC and/or EXISTING_QUESTIONS, using <Examples> as a guide.
+Understand the FORMAT and TOPIC before you output. 
+If no FORMAT is clear, then output phrases from each FORMAT type. 
 Make sure output questions very relevant right now.
 Target audience is gen z, get alpha, and millennials.
 Make sure that each output question contains 8 words or fewer.
@@ -20,6 +22,10 @@ Overall Tone:
 * Use clear, simple, and friendly language.
 * Be thought-provoking and unexpected.
 * Make sure output questions are concise and clever.
+
+
+FORMAT 
+
 
 <Examples>
 Questions:[
