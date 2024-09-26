@@ -117,8 +117,8 @@ RESPONSE_SCHEMA = {
 #Update me.
 TOPIC = "Travel"
 EXISTING_IDEAS = [
-    "Hostel or Hotel?",
-    "Beach or mountains?",
+    "My favorite place to travel is",
+    "Best places to backpack",
 ]
 
 prompt = ""
