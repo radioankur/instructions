@@ -91,9 +91,9 @@ FORMAT types:[
   "The thing I wish for more than anythine else",
 
 5. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
-    "Make a surprised face!",
+    "Act like you're surprised!",
     "Imitate the sound of a cat.",
-    "Do 10 push-ups!",
+    "Do 10 push-ups.",
     "Tell a joke that will make everyone laugh.",
     ]
 </examples>    
