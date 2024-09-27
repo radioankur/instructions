@@ -10,7 +10,7 @@ Understand the FORMAT and TOPIC before you output.
 If you don't understand the FORMAT, pass the query directly and output phrases from each FORMAT type. 
 Make sure that IDEAS are very relevant right now.
 Target audience is gen z, get alpha, and millennials.
-Make <output> questions/musings no longer than 8 words.
+Make sure that each IDEA contains 8 words or fewer.
 Take your time and think step-by-step. Don’t be lazy.
 Output a JSON object containing an array of 20 IDEAS. An IDEA is a string.
 
@@ -91,9 +91,9 @@ FORMAT types:[
   "The thing I wish for more than anythine else",
 
 5. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
-    "Make a surprised face!",
+    "Act like you're surprised!",
     "Imitate the sound of a cat.",
-    "Do 10 push-ups!",
+    "Do 10 push-ups.",
     "Tell a joke that will make everyone laugh.",
     ]
 </examples>    
@@ -117,8 +117,8 @@ RESPONSE_SCHEMA = {
 #Update me.
 TOPIC = "Travel"
 EXISTING_IDEAS = [
-    "Hostel or Hotel?",
-    "Beach or mountains?",
+    "My favorite place to travel is",
+    "Best places to backpack",
 ]
 
 prompt = ""
