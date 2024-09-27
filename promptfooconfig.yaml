@@ -104,7 +104,10 @@ prompts:
     IDEAS:
 
 providers:
-  - "vertex:gemini-1.5-flash-001"
+  - id: "vertex:gemini-1.5-flash-001"
+    config:
+      generationConfig:
+        responseMimeType: "application/json"
 
 tests:
   - vars:
