@@ -22,8 +22,8 @@ python3 gen_text.py
 
 ***
 
-1. sudo npm install -g promptfoo
+1. Download and install Node.js at https://nodejs.org/en/download/
 
-2. npm install @google-cloud/vertexai
+2. sudo npm install
 
 3. promptfoo eval
