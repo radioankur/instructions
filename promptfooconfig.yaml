@@ -109,6 +109,15 @@ providers:
       generationConfig:
         responseMimeType: "application/json"
 
+defaultTest:
+  assert:
+      # Ensure that the output is valid JSON matching the schema
+      - type: is-json
+        value:
+          type: array
+          items:
+            type: string
+
 tests:
   - vars:
       topic: "Travel"
@@ -117,23 +126,9 @@ tests:
           "My favorite place to travel is",
           "Best places to backpack"
         ]
-    assert:
-      # Ensure that the output is valid JSON matching the schema
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
 
   - vars:
       topic: "Technology"
-    assert:
-      # Ensure that the output is valid JSON matching the schema
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
 
   - vars:
       existing_ideas_formatted: |
@@ -141,421 +136,157 @@ tests:
           "The most innovative gadget I own is",
           "Apps I can't live without"
         ]
-    assert:
-      # Ensure that the output is valid JSON matching the schema
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
 
   - vars: {}
       # No topic or existing ideas
-    assert:
-      # Ensure that the output is valid JSON matching the schema
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
 
   - vars:
       topic: gen z trends
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: travel tips
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: anything about marvel movies
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: tennis
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: skincare
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: taylor swift
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: science facts
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: the simpsons
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: fortnight
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: that specific feeling you get when you part ways with someone but then begin to walk in the same direction.
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: nba players
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: best selling albums of all time
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: history of video games
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: how are movies made
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: harry potter trivia
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: latest celebrity gossip
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: most streamed songs on spotify
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: stepping on leaves in the autumn
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: reality tv shows
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: top 10 comedy movies
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: anime references
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: who is elon musk
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: cooking hacks for beginners
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: different types of coffee
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: easy home workouts
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: fashion trends for fall
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: how to get better sleep
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: financial tips for early retirement
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: productivity tips
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: what are dreams
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: farm wedding fashion
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: tarot
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: rules of golf that are weird
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: climate change explained
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: dinosaur facts
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: how do airplanes fly
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: what are black holes
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: wonders of the world.
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: elevator etiquette
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: optical illusions
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: riddles with answers
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: tongue twisters
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: rubik's cube
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: the best ways to calm down
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: science of happiness
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: history of ancient egypt
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: how to write calligraphy
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: best places for stargazing
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
       topic: The strange satisfaction of perfectly peeling a sticker off in one go.
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+
   - vars:
-      topic: My pet watches me while I sleep lol 
-    assert:
-      - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+      topic: My pet watches me while I sleep lol
+
