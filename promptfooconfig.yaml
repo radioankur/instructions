@@ -290,3 +290,13 @@ tests:
   - vars:
       topic: My pet watches me while I sleep lol
 
+  - vars:
+      topic: acting challenge
+    assert:
+      - type: javascript
+        value: |
+          const json = JSON.parse(output);
+          const hasQuestions = Object.values(json).some(value => 
+            typeof value === 'string' && value.includes('?')
+          );
+          return !hasQuestions;
