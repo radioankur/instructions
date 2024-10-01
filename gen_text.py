@@ -10,7 +10,9 @@ Understand the FORMAT and TOPIC before you output.
 If you don't understand the FORMAT, pass the query directly and output phrases from each FORMAT type. 
 Make sure that IDEAS are very relevant right now.
 Target audience is gen z, get alpha, and millennials.
-Make sure that each IDEA contains 8 words or fewer.
+Make sure that IDEAS contains 8 words or fewer.
+Make sure that you output IDEAS from each FORMAT. 
+No more than half of output IDEAS should be questions. 
 Take your time and think step-by-step. Don’t be lazy.
 Output a JSON object containing an array of 20 IDEAS. An IDEA is a string.
 
