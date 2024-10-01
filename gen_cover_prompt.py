@@ -8,26 +8,7 @@ from PIL import Image
 
 vertexai.init(project="stations-243022", location="us-central1")
 
-SYSTEM_INSTRUCTION = """Output 6 prompts that could be used to generate an image using Gen AI, that relates to a input question, using <Examples> as a guide.
-Make sure that each output prompt is detailed and conveys something relevant to the input question.
-Take your time and think step-by-step. Don’t be lazy.
-Output a JSON object containing an array of 6 prompts. A prompt is a string.
-
-  Using this JSON schema:
-    Prompt = str
-  Return a `list[Prompt]`
-
-Overall Tone:
-* Use clear language.
-
-<Examples>
-Question:Fish or Birds?
-Prompts:[
-    "split screen with fish on one side and birds on another"
-]
-</Examples>
-"""
-_INSPO_PACKS_COVER_PROMPT_SYSTEM_INSTRUCTION = """Output 6 prompts that could be used to generate an image using Gen AI.
+SYSTEM_INSTRUCTION ="""Output 6 prompts that could be used to generate an image using Gen AI.
 The background of the generated image should relate to the input title.
 The foreground of the generated image to be the input title as text, centered in a bold, fun, eye catching font.
 Use <Examples> as a guide.
@@ -45,7 +26,8 @@ Overall Tone:
 <Examples>
 Title:Would you rather
 Prompts:[
-    "The text 'WOULD YOU RATHER' in bold text, centered over a background of question marks"
+    "The title text 'WOULD YOU RATHER' in bold font, centered over a background of question marks",
+    "The title text 'WOULD YOU RATHER' in bold, eye catching font, centered over a background of a balance weighing two options",
 ]
 </Examples>
 """
