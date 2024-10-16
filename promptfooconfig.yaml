@@ -1,0 +1,302 @@
+# Learn more about building a configuration: https://promptfoo.dev/docs/configuration/guide
+description: "Evaluate AI assistant for generating IDEAS based on FORMAT, TOPIC, and Existing_IDEAS"
+
+prompts:
+  - |
+    You are a helpful and creative AI assistant. Output 20 interesting and funny IDEAS based on FORMAT, TOPIC and/or Existing_IDEAS, using <Examples> as a guide.
+    Understand the FORMAT and TOPIC before you output.
+    If you don't understand the FORMAT, pass the query directly and output phrases from each FORMAT type.
+    Make sure that IDEAS are very relevant right now.
+    Target audience is gen z, gen alpha, and millennials.
+    Make sure that each IDEA contains 8 words or fewer.
+    Take your time and think step-by-step. Don’t be lazy.
+    Output a JSON object containing an array of 20 IDEAS. An IDEA is a string.
+
+      Using this JSON schema:
+        IDEA = str
+      Return a `list[IDEA]`
+
+    Overall Tone:
+    * Use clear, simple, and friendly language.
+    * Make sure IDEAS are concise and clever.
+
+    <examples>
+    FORMAT types:[
+
+    1. Trivia: Generate IDEAS about TOPIC with factual answers, like:
+        "What is the capital of France?",
+        "Who painted the Mona Lisa?",
+        "What is the name of the longest river in the world?",
+        "Who was the first president of the United States?",
+        "Which planet is the hottest in our solar system?",
+        "Who wrote the famous play 'Romeo and Juliet'?",
+        "In what year did World War II end?",
+        "What is the chemical symbol for gold?",
+        "Who painted the iconic masterpiece 'The Starry Night'?",
+        "What is the basic unit of measurement for length?",
+        "Which country is home to the Great Wall of China?",
+        "Who is the current reigning monarch of England?",
+        "What is the name of the tallest mountain in the world?",
+        "Which U.S. state is known as the 'Sunshine State'?",
+        "Who invented the light bulb?",
+        "What is the name of the famous scientific theory that explains the universe's origin?",
+
+    2. This or that?: Generate IDEAS that present two options about TOPIC for the player to choose between, like:
+        "Coffee or tea?",
+        "Beach vacation or mountain getaway?",
+        "Beach or mountains?",
+        "Cats or dogs?",
+        "Sweet or savory?",
+        "Morning or night?",
+        "Summer or winter?",
+        "Books or movies?",
+        "Tea or coffee?",
+        "Call or text?",
+        "City or country?",
+        "Fly or drive?",
+
+    3. Recommendations: Generate IDEAS that suggest something to the player about TOPIC (e.g., a book, movie, activity), like:
+        "Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.",
+        "Watch the movie 'Spirited Away' by Studio Ghibli.",
+        "Go for a hike in a nearby park.",
+
+    4. Opinion: Generate IDEAS that ask for the player's opinion about TOPIC, like:
+        "What is your favorite season and why?",
+        "Do you believe in aliens?",
+        "Social norm needs to be abolished",
+        "Modern society is so weird",
+        "Best decade for music?",
+        "Annoying fashion trends",
+        "The most important lesson I've learned is",
+        "Weirdest thing you've ever seen a stranger do?",
+        "The most embarrassing thing you've ever done in public?",
+        "What's the most useless piece of information you know?",
+        "Common misconceptions about my generation lol",
+        "Animals are so funny",
+        "Best thing about humanity",
+        "Worst thing about humanity",
+        "The most ridiculous thing I've ever spent money on",
+        "The most embarrassing song I secretly love",
+        "You could have any superpower, but it must be the lamest one ever lol",
+        "You wake up tomorrow as the opposite gender. What's the first thing you do?",
+        "You have to give up one of your senses forever",
+        "You discover you can talk to inanimate objects",
+        "You win a lifetime supply of something you don't want",
+        "You accidentally switch lives with your pet for a day",
+        "One rule that everyone in the world has to follow",
+        "You're suddenly fluent in every language. What do you do first?",
+        "The thing I wish for more than anything else",
+
+    5. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
+        "Act like you're surprised!",
+        "Imitate the sound of a cat.",
+        "Do 10 push-ups.",
+        "Tell a joke that will make everyone laugh.",
+    ]
+    </examples>
+
+    {% if topic %}
+    Topic: {{ topic }}
+    {% endif %}
+    {% if existing_ideas_formatted %}
+    Existing_IDEAS: {{ existing_ideas_formatted }}
+    {% endif %}
+    IDEAS:
+
+providers:
+  - id: "vertex:gemini-1.5-flash-001"
+    config:
+      generationConfig:
+        responseMimeType: "application/json"
+
+defaultTest:
+  assert:
+      # Ensure that the output is valid JSON matching the schema
+      - type: is-json
+        value:
+          type: array
+          items:
+            type: string
+
+tests:
+  - vars:
+      topic: "Travel"
+      existing_ideas_formatted: |
+        [
+          "My favorite place to travel is",
+          "Best places to backpack"
+        ]
+
+  - vars:
+      topic: "Technology"
+
+  - vars:
+      existing_ideas_formatted: |
+        [
+          "The most innovative gadget I own is",
+          "Apps I can't live without"
+        ]
+
+  - vars: {}
+      # No topic or existing ideas
+
+  - vars:
+      topic: gen z trends
+
+  - vars:
+      topic: travel tips
+
+  - vars:
+      topic: anything about marvel movies
+
+  - vars:
+      topic: tennis
+
+  - vars:
+      topic: skincare
+
+  - vars:
+      topic: taylor swift
+
+  - vars:
+      topic: science facts
+
+  - vars:
+      topic: the simpsons
+
+  - vars:
+      topic: fortnight
+
+  - vars:
+      topic: that specific feeling you get when you part ways with someone but then begin to walk in the same direction.
+
+  - vars:
+      topic: nba players
+
+  - vars:
+      topic: best selling albums of all time
+
+  - vars:
+      topic: history of video games
+
+  - vars:
+      topic: how are movies made
+
+  - vars:
+      topic: harry potter trivia
+
+  - vars:
+      topic: latest celebrity gossip
+
+  - vars:
+      topic: most streamed songs on spotify
+
+  - vars:
+      topic: stepping on leaves in the autumn
+
+  - vars:
+      topic: reality tv shows
+
+  - vars:
+      topic: top 10 comedy movies
+
+  - vars:
+      topic: anime references
+
+  - vars:
+      topic: who is elon musk
+
+  - vars:
+      topic: cooking hacks for beginners
+
+  - vars:
+      topic: different types of coffee
+
+  - vars:
+      topic: easy home workouts
+
+  - vars:
+      topic: fashion trends for fall
+
+  - vars:
+      topic: how to get better sleep
+
+  - vars:
+      topic: financial tips for early retirement
+
+  - vars:
+      topic: productivity tips
+
+  - vars:
+      topic: what are dreams
+
+  - vars:
+      topic: farm wedding fashion
+
+  - vars:
+      topic: tarot
+
+  - vars:
+      topic: rules of golf that are weird
+
+  - vars:
+      topic: climate change explained
+
+  - vars:
+      topic: dinosaur facts
+
+  - vars:
+      topic: how do airplanes fly
+
+  - vars:
+      topic: what are black holes
+
+  - vars:
+      topic: wonders of the world.
+
+  - vars:
+      topic: elevator etiquette
+
+  - vars:
+      topic: optical illusions
+
+  - vars:
+      topic: riddles with answers
+
+  - vars:
+      topic: tongue twisters
+
+  - vars:
+      topic: rubik's cube
+
+  - vars:
+      topic: the best ways to calm down
+
+  - vars:
+      topic: science of happiness
+
+  - vars:
+      topic: history of ancient egypt
+
+  - vars:
+      topic: how to write calligraphy
+
+  - vars:
+      topic: best places for stargazing
+
+  - vars:
+      topic: The strange satisfaction of perfectly peeling a sticker off in one go.
+
+  - vars:
+      topic: My pet watches me while I sleep lol
+
+  - vars:
+      topic: acting challenge
+    assert:
+      - type: javascript
+        value: |
+          const json = JSON.parse(output);
+          const hasQuestions = Object.values(json).some(value => 
+            typeof value === 'string' && value.includes('?')
+          );
+          return !hasQuestions;
