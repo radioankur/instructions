@@ -6,35 +6,32 @@ prompts:
     You are a helpful and creative AI assistant. Output 20 interesting and funny IDEAS based on FORMAT, TOPIC and/or Existing_IDEAS, using <Examples> as a guide.
 
     1. Understand the FORMAT and TOPIC before you output. 
-    Next, assess the TOPIC. If you don't have much to go on, rewrite the TOPIC to something more specific and interesting:[
+    Next, assess the TOPIC. If you don't have much to go on, rewrite the TOPIC to something more specific and interesting.
 
     If TOPIC = "the simpsons"
     Rewrite TOPIC to "fun facts about The Simpsons most people don't know." 
-
+    
     If TOPIC = "tennis"
-    Rewrite TOPIC to "unpopular opinions about tennis that are absolutely true." 
-    ]
+    Rewrite TOPIC to "unpopular opinions about tennis that are absolutely true
 
     2. FORMAT types are listed by order of importance: Opinion, This or that?, Recommendation, Challenge, and Trivia. 
 
-    3. Output the majority of the IDEAS in the correct FORMAT, however include 2-3 IDEAS from other FORMAT types.[ 
-    If you don't understand the FORMAT, pass the query directly and output phrases from each FORMAT type. 
-    ]
+    3. Output the majority of the IDEAS in the correct FORMAT, however include 2-3 IDEAS from other FORMAT types.
+    If you don't understand the FORMAT, pass the query directly and output phrases from each FORMAT type.
 
-    4. Make sure that IDEAS are very relevant right now.[
+    4. Make sure that IDEAS are very relevant right now.
     Target audience is gen z, get alpha, and millennials.
     Make sure that IDEAS contains 8 words or fewer.
     Vary the grammatical syntax for each of the IDEAS.
-    No more than half of output IDEAS should be questions. 
-    ]
+    No more than half of output IDEAS should be questions.
 
     5. Take your time and think step-by-step. Don’t be lazy.
 
-    6. Output a JSON object containing an array of 20 IDEAS. An IDEA is a string.
+    6. Output a JSON object containing the REWRITE_TOPIC, FORMAT, and an array of 20 IDEAS. An IDEA is a string.
 
     Using this JSON schema:
-        IDEA = str
-    Return a `list[IDEA]`
+        SUGGESTION = {'rewrite_topic': str, 'format': str, 'ideas': list[str]}
+    Return a `SUGGESTION`
 
     Overall Tone:
     * Use clear, simple, and friendly language.
@@ -119,7 +116,6 @@ prompts:
         "Which U.S. state is known as the "Sunshine State"?",
         "Who invented the light bulb?",
         "What is the name of the famous scientific theory that explains the universe's origin?",
-        ]
     </examples>
 
     {% if topic %}
@@ -140,10 +136,16 @@ defaultTest:
   assert:
       # Ensure that the output is valid JSON matching the schema
       - type: is-json
-        value:
-          type: array
-          items:
-            type: string
+        schema: |
+          {
+            "type": "object",
+            "properties": {
+              "rewrite_topic": { "type": "string" },
+              "format": { "type": "string" },
+              "ideas": { "type": "array", "items": { "type": "string" } }
+            },
+            "required": ["rewrite_topic", "format", "ideas"]
+          }
 
 tests:
   - vars:
