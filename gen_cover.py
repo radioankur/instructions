@@ -16,17 +16,16 @@ vertexai.init(project="stations-243022", location="us-central1")
 
 imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-fast-generate-001")
 
-SYSTEM_INSTRUCTION = """You are a helpful and creative thumbnail designer. 
-Create an image of PROMPT with the \"TITLE\" written in a creative font across the center that is bold and eye-catching.
-Make sure the words are human-readable and displayed exactly as written. 
+PROMPT = """You are a helpful and creative thumbnail designer. 
+Create an image of <PROMPT> with the \"TITLE\" written in a creative font across the center that is bold and eye-catching.
+Make sure the words in <TITLE> are human-readable and displayed exactly as written. 
 
-# Update me.
-TITLE = "Pawsome Pals"
-PROMPT = "A cute dogs and cats"
-PROMPT_TEMPLATE = "Display '{}' in a bold and eye-catching font. Make the background {}"
+<TITLE>Pawsome Pals</TITLE>
+<PROMPT>A cute dogs and cats</PROMPT>
+"""
 
 images = imagen_model.generate_images(
-    prompt=PROMPT_TEMPLATE.format(TITLE, PROMPT),
+    prompt=PROMPT,
     number_of_images=4,
     aspect_ratio="3:4",
     safety_filter_level="block_some",
