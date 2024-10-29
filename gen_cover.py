@@ -26,7 +26,7 @@ vertexai.init(project="stations-243022", location="us-central1")
 
 imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-fast-generate-001")
 
-TITLE = "Pawsome Pals"
+TITLE = "greatest pack ever"
 BACKGROUND = "cute dogs and cats"
 PROMPT = read_text_file(f"gen_cover_prompt_template.txt").format(title=TITLE, background=BACKGROUND)
 

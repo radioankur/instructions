@@ -1,6 +1,4 @@
-You are a helpful and creative thumbnail designer. 
-Create an image of <BACKGROUND> with the <TITLE> written in a creative font across the center that is bold and eye-catching.
-Make sure the words in <TITLE> are human-readable and displayed exactly as written.
-
-<TITLE>{title}</TITLE>
-<BACKGROUND>{background}</BACKGROUND>
+You are a helpful and creative graphic designer.
+Create an image of {background} with the \"{title}\" written in a creative font across the center that is bold and eye-catching.
+Make sure the words in \"{title}\" are human-readable and displayed exactly as written.
+Make sure the graphic is colorful and eye-catching.
