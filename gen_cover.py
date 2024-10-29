@@ -3,30 +3,35 @@ import vertexai
 from enum import Enum
 from PIL import Image
 
-class Style(Enum):
-    CINEMATIC = "cinematic"
-    ANIME = "anime"
-    PIXEL_ART = "pixel art"
-    FANTASY = "fantasy"
-    # TODO add more.
-
 from vertexai.preview.vision_models import ImageGenerationModel
+
+def read_text_file(file_path):
+  """
+  Reads a text file and returns its content as a string.
+
+  Args:
+    file_path: The path to the text file.
+
+  Returns:
+    A string containing the file's content.
+  """
+  try:
+    with open(file_path, 'r') as file:
+      return file.read()
+  except FileNotFoundError:
+    print(f"Error: File not found at {file_path}")
+    return None
 
 vertexai.init(project="stations-243022", location="us-central1")
 
 imagen_model = ImageGenerationModel.from_pretrained("imagen-3.0-fast-generate-001")
 
-SYSTEM_INSTRUCTION = """You are a helpful and creative thumbnail designer. 
-Create an image of PROMPT with the \"TITLE\" written in a creative font across the center that is bold and eye-catching.
-Make sure the words are human-readable and displayed exactly as written. 
-
-# Update me.
-TITLE = "Pawsome Pals"
-PROMPT = "A cute dogs and cats"
-PROMPT_TEMPLATE = "Display '{}' in a bold and eye-catching font. Make the background {}"
+TITLE = "greatest pack ever"
+BACKGROUND = "cute dogs and cats"
+PROMPT = read_text_file(f"gen_cover_prompt_template.txt").format(title=TITLE, background=BACKGROUND)
 
 images = imagen_model.generate_images(
-    prompt=PROMPT_TEMPLATE.format(TITLE, PROMPT),
+    prompt=PROMPT,
     number_of_images=4,
     aspect_ratio="3:4",
     safety_filter_level="block_some",
