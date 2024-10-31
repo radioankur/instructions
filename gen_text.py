@@ -36,10 +36,10 @@ RESPONSE_SCHEMA = {
     "type": "object",
     "properties": {
         "rewrite_topic": { "type": "string" },
-        "format": { "type": "string" },
+        "intent": { "type": "string" },
         "ideas": { "type": "array", "items": { "type": "string" } }
     },
-    "required": ["rewrite_topic", "format", "ideas"]
+    "required": ["rewrite_topic", "intent", "ideas"]
 }
 
 #Update me.
