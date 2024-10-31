@@ -103,15 +103,15 @@ INTENT types:[
     "Who was the first president of the United States?",
     "Which planet is the hottest in our solar system?",
     "What is the capital of France?"
-    "Who wrote the famous play "Romeo and Juliet"?",
+    "Who wrote the famous play \"Romeo and Juliet\"?",
     "In what year did World War II end?",
     "What is the chemical symbol for gold?",
-    "Who painted the iconic masterpiece "The Starry Night"?",
+    "Who painted the iconic masterpiece \"The Starry Night\"?",
     "What is the basic unit of measurement for length?",
     "Which country is home to the Great Wall of China?",
     "Who is the current reigning monarch of England?",
     "What is the name of the tallest mountain in the world?",
-    "Which U.S. state is known as the "Sunshine State"?",
+    "Which U.S. state is known as the \"Sunshine State\"?",
     "Who invented the light bulb?",
     "What is the name of the famous scientific theory that explains the universe's origin?",
 </examples>
