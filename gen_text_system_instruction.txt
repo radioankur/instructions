@@ -28,6 +28,7 @@ No more than half of output IDEAS should be questions.
 
 5. Take your time and think step-by-step. Don’t be lazy. 
 
+
 6. Output a JSON object containing the REWRITE_TOPIC, INTENT, and an array of 20 IDEAS. An IDEA is a string.
 
 Using this JSON schema:
@@ -43,79 +44,86 @@ Overall Tone:
 INTENT types:[
 
 1. Fun facts: Generate interesting and fun IDEAS about TOPIC, like: 
-"Baby carrots are cut, not grown",
-"Blue whales are the largest animals",
-"Lobsters taste with their legs",
-"Your nose and ears never stop growing",
-"Most dust is dead skin",
-"Armadillos nearly always have quadruplets",
-"Birds evolved from dinosaurs",
-"Cows moo with regional accents",
-"Some cats are allergic to humans",
-"Butterflies taste with their feet",
-"It rarely rains in the Sahara Desert",
-"Squirrels can't burp or vomit",
-"Koalas have fingerprints like humans:,
-"Frogs drink water through their skin",
-"Bamboo is the fastest-growing plant",
-"Your tongue print is unique",
-"Canada's population is less than California's",
-"Bananas are berries, but strawberries aren't",
-"Hot water freezes faster than cold",
-"More trees exist than stars in the Milky Way",
+Baby carrots are cut, not grown
+Blue whales are the largest animals
+Lobsters taste with their legs
+Your nose and ears never stop growing
+Most dust is dead skin
+Armadillos nearly always have quadruplets
+Birds evolved from dinosaurs
+Cows moo with regional accents
+Some cats are allergic to humans
+Butterflies taste with their feet
+It rarely rains in the Sahara Desert
+Squirrels can't burp or vomit
+Koalas have fingerprints like humans
+Frogs drink water through their skin
+Bamboo is the fastest-growing plant
+Your tongue print is unique
+Canada's population is less than California's
+Bananas are berries, but strawberries aren't
+Hot water freezes faster than cold
+More trees exist than stars in the Milky Way
 
 2. This or that?: Generate IDEAS that present two options about TOPIC for the player to choose between, like:
-    "Coffee or tea?",
-    "Beach vacation or mountain getaway?",
-    "Beach or mountains?",
-    "Cats or dogs?",
-    "Sweet or savory?",
-    "Morning or night?",
-    "Summer or winter?",
-    "Books or movies?",
-    "Tea or coffee?",
-    "Call or text?",
-    "City or country?",
-    "Fly or drive?",
+Coffee or tea?
+Beach vacation or mountain getaway?
+Beach or mountains?
+Cats or dogs?
+Sweet or savory?
+Morning or night?
+Summer or winter?
+Books or movies?
+Tea or coffee?
+Call or text?
+City or country?
+Fly or drive?
     
 3. Recommendation: Generate IDEAS that suggest something to the player about TOPIC (e.g., a book, movie, activity), like:
-    "Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams.", 
-    "Watch the movie 'Spirited Away' by Studio Ghibli.", 
-    "Go for a hike in a nearby park.", 
-    "Make roasted sweet potatoes with tahini and za'atar.",
-    "Read The Overstory by Richard Powers.",
-    "Freeze leftover herbs in olive oil.",
-    "Start a journal for daily reflection.",
-    "Try learning a new language.",
+Read 'The Hitchhiker's Guide to the Galaxy' by Douglas Adams
+Watch the movie 'Spirited Away' by Studio Ghibli
+Go for a hike in a nearby park
+Make roasted sweet potatoes with tahini and za'atar
+Read The Overstory by Richard Powers
+Freeze leftover herbs in olive oil
+Start a journal for daily reflection
+Try learning a new language
 
 4. Challenge: Generate phrases that prompt the player to react in a certain way related to TOPIC (e.g., with an emotion, action, or sound), like:
-    "Act like you're surprised!",
-    "Imitate the sound of a cat.",
-    "Do 10 push-ups.",
-    "Tell a joke that will make everyone laugh.",
-    "Try to hang from a bar for one minute.",
+Act like you're surprised!
+Imitate the sound of a cat
+Do 10 push-ups
+Tell a joke that will make everyone laugh
+Try to hang from a bar for one minute
     
     
 5. Trivia: Generate IDEAS about TOPIC with factual answers, like:
-    "What is the capital of France?",
-    "Who painted the Mona Lisa?",
-    "What is the name of the longest river in the world?",
-    "Who was the first president of the United States?",
-    "Which planet is the hottest in our solar system?",
-    "What is the capital of France?"
-    "Who wrote the famous play "Romeo and Juliet"?",
-    "In what year did World War II end?",
-    "What is the chemical symbol for gold?",
-    "Who painted the iconic masterpiece "The Starry Night"?",
-    "What is the basic unit of measurement for length?",
-    "Which country is home to the Great Wall of China?",
-    "Who is the current reigning monarch of England?",
-    "What is the name of the tallest mountain in the world?",
-    "Which U.S. state is known as the "Sunshine State"?",
-    "Who invented the light bulb?",
-    "What is the name of the famous scientific theory that explains the universe's origin?",
+What is the capital of France?
+Who painted the Mona Lisa?
+What is the name of the longest river in the world?
+Who was the first president of the United States?
+Which planet is the hottest in our solar system?
+What is the capital of France?"
+Who wrote the famous play "Romeo and Juliet"?
+In what year did World War II end?
+What is the chemical symbol for gold?
+Who painted the iconic masterpiece "The Starry Night"?
+What is the basic unit of measurement for length?
+Which country is home to the Great Wall of China?
+Who is the current reigning monarch of England?
+What is the name of the tallest mountain in the world?
+Which U.S. state is known as the "Sunshine State"?
+Who invented the light bulb?
+What is the name of the famous scientific theory that explains the universe's origin?
 </examples>
+]
 
-Re-read the prompt before you respond.
+Re-read the prompt before you respond. Make sure that IDEAS contains 8 words or fewer.
+
+Remember to output a JSON object containing the REWRITE_TOPIC, INTENT, and an array of 20 IDEAS. An IDEA is a string.
+
+Using this JSON schema:
+    SUGGESTION = {'rewrite_topic': str, 'intent': str, 'ideas': list[str]}
+Return a `SUGGESTION`
 
 {{ prompt }}
