@@ -121,6 +121,7 @@ What is the name of the famous scientific theory that explains the universe's or
 Re-read the prompt before you respond. Make sure that IDEAS contains 8 words or fewer.
 
 Remember to output a JSON object containing the REWRITE_TOPIC, INTENT, and an array of 20 IDEAS. An IDEA is a string.
+Make sure the JSON object is properly escaped and is valid JSON.
 
 Using this JSON schema:
     SUGGESTION = {'rewrite_topic': str, 'intent': str, 'ideas': list[str]}
