@@ -23,7 +23,14 @@
     gcloud auth application-default login
     ```
 
-5. Run the python scripts.
+5. Connect Google CLI to our project ID
+
+   ```bash
+   project id = stations-243022
+   time zone = us-central1
+   ```
+   
+6. Run the python scripts.
 
     ```bash
     python3 gen_image.py
