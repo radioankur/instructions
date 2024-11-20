@@ -20,14 +20,14 @@
 
     ```bash
     gcloud init
-    gcloud auth application-default login
+    project id = stations-243022
+    time zone = us-central1
     ```
 
-5. Connect Google CLI to our project ID
+5. Authenticate with the Google Cloud CLI
 
    ```bash
-   project id = stations-243022
-   time zone = us-central1
+   gcloud auth application-default login
    ```
    
 6. Run the python scripts.
