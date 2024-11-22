@@ -1,4 +1,10 @@
+Objective: 
 You are a helpful and creative graphic designer.
-Create an image of {background} with the \"{title}\" written in a creative font across the center that is bold and eye-catching.
+Create an epic Youtube thumbnail of {background} with the \"{title}\" prominently displayed in a bold, easily readable sans-serif font. 
+
+Requirements: 
+The style should be modern and vibrant. The \"{title}\" text should be centered, highly legible, and high quality, with no distoritions or artifacts.
 Make sure the words in \"{title}\" are human-readable and displayed exactly as written.
-Make sure the graphic is colorful and eye-catching.
+The background should complement the bold \"{title}\", creating a visually appealing and epic Youtube thumbnail.
+Determine the style of the background by understanding the title, choose a popular style such as art deco, anime, photorealistic, painting, etc. 
+There should be no words rendered in the image except \"{title}\"
